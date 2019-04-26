@@ -15,7 +15,7 @@ sans-serif;
 
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75em; // 1200px
-$bp-large: 62.5em; // 1000px
+$bp-large: 65.5em; // 1000px
 $bp-medium: 50em; // 800px;
 $bp-small: 37.5em; // 600px;
 
@@ -33,11 +33,20 @@ html {
     box-sizing: border-box;
     font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
 
-    @media only screen and (max-width: $bp-largest) {
-        font-size: 50%;
+
+
+    @media only screen and (max-width: $bp-large) {
+        // width < 1000?
+        font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
     }
 
-    overflow-x: hidden;
+    @media only screen and (max-width: $bp-medium) {
+        // width < 600?
+        font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
+
+
+    
 }
 
 body {
@@ -46,6 +55,7 @@ body {
     font-weight: 300;
     line-height: 1.6;
     background-color: #FAFAFA;
+    overflow-x: hidden;
 }
 
 a {
@@ -74,6 +84,14 @@ header {
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: top right;
+
+    @media only screen and (max-width: $bp-large) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/landing-img-mobile.png);
+        background-size: cover;
+        & h2 {
+            color: white;
+        }
+    }
 }
 
 nav {
@@ -90,28 +108,81 @@ nav {
         font-size: 1.6rem;
         color: $color-black;
         margin: 4rem 4rem;
+        
+    @media only screen and (max-width: $bp-largest) {
+        margin: 4rem 2rem;
+    }
+        @media only screen and (max-width: $bp-large) {
+            margin: 4rem 2rem;
+            color: white;
+
+        }
+        @media only screen and (max-width: $bp-small) {
+            margin: 4rem 1rem;
+          
+        }
+
     }
 }
 
 .header-section {
     margin-top: 6rem;
     margin-left: 15rem;
+
+    @media only screen and (max-width: $bp-largest) {
+        h1{font-size:7rem;}
+    }
+
+    @media only screen and (max-width: $bp-large) {
+        margin-left: 0;
+        margin-top: 10rem;
+        text-align: center;
+        & h1 {
+            color: white;
+
+        }
+       
+
+    }
+    @media only screen and (max-width: $bp-small) {
+        margin: 4rem 1rem;
+
+      
+    }
 }
 
 .featured-section {
     margin-left: 15rem;
     margin-top: 8rem;
 
+    @media only screen and (max-width: $bp-large) {
+        margin-left: 5rem;
+        position: absolute;
+        bottom: 5rem;
+    }
+
     & img {
         width: 15rem;
         border-radius: 2rem;
         margin-right: 1.5rem;
         margin-top: 1.5rem;
+
+        @media only screen and (max-width: $bp-large) {
+            width: 15rem;
+        }
+        @media only screen and (max-width: $bp-small) {
+            width:11rem;     
+        }
     }
 
     & a {
         display: block;
         margin-left: 35rem;
+
+        @media only screen and (max-width: $bp-large) {
+            margin-left: 0;
+
+        }
     }
 
 }
@@ -126,15 +197,19 @@ nav {
     position: absolute;
     bottom: 2rem;
     right: 3rem;
+    
+
 }
 
 .scroll-icon {
-    display: none;
+   
     width: 5rem;
     position: absolute;
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
+    @media only screen and (max-width: $bp-largest) {display:none;}
+    
 }
 
 .story-section {
@@ -153,6 +228,31 @@ nav {
         margin: 3rem 10rem 0 0;
         font-weight: 300;
     }
+    @media only screen and (max-width: $bp-largest) {
+        grid-template-columns: 50% 1fr;
+        img{margin-top: 3rem;}
+    }
+    @media only screen and (max-width: $bp-large) {
+        grid-template-columns: 1fr;
+        
+        img{ display:none;}
+        p{margin: 3rem 3rem 0 0;}
+        
+    }
+    @media only screen and (max-width: $bp-small) {
+        h1{margin: 3rem 2rem;}
+        p{
+            margin: 3rem 2rem;
+        }
+    }
+}
+
+.story-content{
+    @media only screen and (max-width: $bp-large) {
+        max-width:45rem;
+        margin: 0 auto;     
+    }
+
 }
 
 .experiences {
@@ -170,6 +270,11 @@ nav {
     & button {
         margin-left: 15rem;
     }
+    @media only screen and (max-width: $bp-large) {
+       h1{ margin-left:5rem;
+    padding-top:10rem; }
+    button{margin-left:5rem;}
+    }
 }
 
 .menu-section {
@@ -180,7 +285,7 @@ nav {
 
 
 .menu {
-    position:relative;
+    position: relative;
     margin-left: 15rem;
     background-color: white;
     min-height: 80rem;
@@ -191,71 +296,96 @@ nav {
         justify-content: center;
 
         &-item {
-            position:relative;
+            position: relative;
             width: 25%;
             text-align: center;
-            padding:3rem 0;
+            padding: 3rem 0;
 
             & label {
                 font-size: 1.8rem;
                 padding-top: 0.5rem;
-                display:block;
+                display: block;
             }
         }
+
         & svg {
             height: 4rem;
         }
-       
-    }
-    &-content{width: 50%;
-    margin: 8rem 0 8rem 10rem;
-display:none;}
 
-    &-course{
-    width:60%;
-        font-size:2rem;
-    font-weight:500;}
-    &-description{
-        font-size:1.6;
-    font-weight:300;
-    margin-bottom:3rem;
     }
-    &-price{
-        float:right;
+
+    &-content {
+        width: 50%;
+        margin: 8rem 0 8rem 10rem;
+        display: none;
     }
-    &-breakfast-img, &-lunch-img, &-dinner-img, &-drinks-img {
+
+    &-course {
+        width: 60%;
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    &-description {
+        font-size: 1.6;
+        font-weight: 300;
+        margin-bottom: 3rem;
+    }
+
+    &-price {
+        float: right;
+    }
+
+    &-breakfast-img,
+    &-lunch-img,
+    &-dinner-img,
+    &-drinks-img {
         position: absolute;
-        top:15rem;
+        top: 15rem;
         right: -30rem;
         width: 50%;
-        display:none;
-        
+        display: none;
+
     }
-    
+
 }
-.menu-content-animation{
-    display:block;
+
+.menu-content-animation {
+    display: block;
     animation: menu-content-animation 0.5s;
 }
-.menu-img-animation{
-    display:block;
+
+.menu-img-animation {
+    display: block;
     animation: menu-img-animation 1s ease;
 }
+
 @keyframes menu-content-animation {
-    from {transform:translateX(-3rem);
-    opacity:0;}
-    to {transform:translateX(0);
-    opacity:1;}
-  }
+    from {
+        transform: translateX(-3rem);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
 @keyframes menu-img-animation {
-    from {transform:translateX(30rem);}
-    to {transform:translateX(0)}
-  }
+    from {
+        transform: translateX(30rem);
+    }
+
+    to {
+        transform: translateX(0)
+    }
+}
+
 .menu-nav-item-active {
     background-color: $color-primary;
     color: white;
-  
+
 
     & .cls-1 {
         fill: white;
@@ -271,8 +401,51 @@ display:none;}
     position: absolute;
     top: 0;
     left: 0;
-  width:100%;
-  height:100%;
+    width: 100%;
+    height: 100%;
     margin: 0;
     cursor: pointer;
-  }
+}
+
+.open-hours {
+    position: relative;
+    background-image: url(../img/open-hours.png);
+    background-size: cover;
+
+    &-content {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        text-align: center;
+    }
+
+    width:100vw;
+    height:50rem;
+
+    &-item {
+        margin: 0 5rem;
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    & h1 {
+        color: white;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+
+}
+
+.menu-section {
+    display: none;
+}
+
+
+
+.open-hours {
+    display: none;
+}

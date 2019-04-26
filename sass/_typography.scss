@@ -7,6 +7,11 @@
     font-weight:100;
    // margin-bottom:-2.5rem;
    line-height: 100%;
+   @media only screen and (max-width: $bp-small) {
+   font-size: 8rem;
+    
+  
+}
 }
 .color-primary{
     color: $color-primary;
