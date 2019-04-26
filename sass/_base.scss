@@ -277,10 +277,12 @@ nav {
     }
 }
 
-.menu-section {
-    h1 {
+.menu-section h1 { 
         margin: 10rem 15rem;
-    }
+        @media only screen and (max-width: $bp-large) {
+            margin: 8rem 4rem;
+           } 
+    
 }
 
 
@@ -289,6 +291,10 @@ nav {
     margin-left: 15rem;
     background-color: white;
     min-height: 80rem;
+    overflow:hidden;
+    @media only screen and (max-width: $bp-large) {
+      margin-left: 0;
+     }
 
     &-nav {
         display: flex;
@@ -310,7 +316,11 @@ nav {
 
         & svg {
             height: 4rem;
+            @media only screen and (max-width: $bp-small) {
+               height: 3rem;
+          } 
         }
+
 
     }
 
@@ -318,6 +328,10 @@ nav {
         width: 50%;
         margin: 8rem 0 8rem 10rem;
         display: none;
+        @media only screen and (max-width: $bp-large) {
+            margin: 5rem 0 5rem 4rem;
+            width: 70%;
+             } 
     }
 
     &-course {
@@ -342,9 +356,12 @@ nav {
     &-drinks-img {
         position: absolute;
         top: 15rem;
-        right: -30rem;
+        right:0;
+        transform:translateX(40rem);
         width: 50%;
         display: none;
+      
+      
 
     }
 
@@ -353,11 +370,16 @@ nav {
 .menu-content-animation {
     display: block;
     animation: menu-content-animation 0.5s;
+   
 }
 
 .menu-img-animation {
     display: block;
-    animation: menu-img-animation 1s ease;
+    
+    animation: menu-img-animation 1s forwards;
+    @media only screen and (max-width: $bp-small) {
+        display:none;
+  } 
 }
 
 @keyframes menu-content-animation {
@@ -374,11 +396,11 @@ nav {
 
 @keyframes menu-img-animation {
     from {
-        transform: translateX(30rem);
+        transform: translateX(60rem);
     }
 
     to {
-        transform: translateX(0)
+        transform: translateX(20rem)
     }
 }
 
@@ -440,9 +462,7 @@ nav {
 
 }
 
-.menu-section {
-    display: none;
-}
+
 
 
 

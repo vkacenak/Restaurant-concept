@@ -195,12 +195,19 @@ nav {
 
 .menu-section h1 {
   margin: 10rem 15rem; }
+  @media only screen and (max-width: 65.5em) {
+    .menu-section h1 {
+      margin: 8rem 4rem; } }
 
 .menu {
   position: relative;
   margin-left: 15rem;
   background-color: white;
-  min-height: 80rem; }
+  min-height: 80rem;
+  overflow: hidden; }
+  @media only screen and (max-width: 65.5em) {
+    .menu {
+      margin-left: 0; } }
   .menu-nav {
     display: flex;
     align-items: center;
@@ -216,10 +223,17 @@ nav {
         display: block; }
     .menu-nav svg {
       height: 4rem; }
+      @media only screen and (max-width: 37.5em) {
+        .menu-nav svg {
+          height: 3rem; } }
   .menu-content {
     width: 50%;
     margin: 8rem 0 8rem 10rem;
     display: none; }
+    @media only screen and (max-width: 65.5em) {
+      .menu-content {
+        margin: 5rem 0 5rem 4rem;
+        width: 70%; } }
   .menu-course {
     width: 60%;
     font-size: 2rem;
@@ -233,7 +247,8 @@ nav {
   .menu-breakfast-img, .menu-lunch-img, .menu-dinner-img, .menu-drinks-img {
     position: absolute;
     top: 15rem;
-    right: -30rem;
+    right: 0;
+    transform: translateX(40rem);
     width: 50%;
     display: none; }
 
@@ -243,7 +258,10 @@ nav {
 
 .menu-img-animation {
   display: block;
-  animation: menu-img-animation 1s ease; }
+  animation: menu-img-animation 1s forwards; }
+  @media only screen and (max-width: 37.5em) {
+    .menu-img-animation {
+      display: none; } }
 
 @keyframes menu-content-animation {
   from {
@@ -255,9 +273,9 @@ nav {
 
 @keyframes menu-img-animation {
   from {
-    transform: translateX(30rem); }
+    transform: translateX(60rem); }
   to {
-    transform: translateX(0); } }
+    transform: translateX(20rem); } }
 
 .menu-nav-item-active {
   background-color: #FCCD00;
@@ -298,9 +316,6 @@ nav {
     color: white;
     text-align: center;
     margin-bottom: 2rem; }
-
-.menu-section {
-  display: none; }
 
 .open-hours {
   display: none; }

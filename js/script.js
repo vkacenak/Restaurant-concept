@@ -68,8 +68,7 @@
 
  $(document).ready(function () {
 
-    
-     
+    $('.menu-breakfast-img').addClass('menu-img-animation');
 
     $("input[name$='menu-name']").click(function() {
         var course = $(this).val();
